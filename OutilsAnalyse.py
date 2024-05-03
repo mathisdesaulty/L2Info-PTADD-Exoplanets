@@ -11,9 +11,21 @@ class OutilsAnalyse:
     def coefCorrel(self, grp1, grp2):
         return np.corrcoef(grp1, grp2)[0, 1]
     
+    def kNN():
+        return
+        
+    def NP():
+        return
+
     
+    def Kmean():
+        return
     
+    def prediction():
+        return
     
+    def predirePlanete():
+        return
     
     
     
