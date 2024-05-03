@@ -8,6 +8,9 @@ class GroupeDePoints: #définition de la classe GroupeDePoints et initialisation
         self.nom=nom
         self.points=points
     
+    def getPoints(self):
+        return self.points
+    
     def getCentre(self): #retourne le centre de tous les points contenus dans le groupe de points
         totalX=0
         totalY=0
