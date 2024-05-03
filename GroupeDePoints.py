@@ -7,6 +7,9 @@ class GroupeDePoints: #définition de la classe GroupeDePoints et initialisation
     def __init__(self,nom,points): #définition du constructeur de la classe GroupeDePoints
         self.nom=nom
         self.points=points
+
+    def getNom(self):
+        return self.nom
     
     def getPoints(self):
         return self.points

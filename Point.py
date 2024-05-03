@@ -8,6 +8,9 @@ class Point: #définition de la classe Point et initialisation de toutes ses var
         self.x=x
         self.y=y
 
+    def getNom(self):
+        return self.nom
+
     def getX(self): #retourne la coordonnée X du point
         return self.x
     
