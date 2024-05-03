@@ -7,7 +7,7 @@ class Planete: #définition de la classe Planete et initialisation de toutes ses
     periodeOrbite=0
     excentricite=0
 
-    def _init_(self,nom,brillance,masse,rayon,rayonOrbite,periodeOrbite,excentricite): #constructeur de la classe Planete
+    def __init__(self,nom,brillance,masse,rayon,rayonOrbite,periodeOrbite,excentricite): #définition du constructeur de la classe Planete
         self.nom=nom
         self.brillance=brillance
         self.masse=masse
