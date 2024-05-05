@@ -21,20 +21,16 @@ class OutilsAnalyse:
         return np.corrcoef(grp1, grp2)[0, 1]
     
     
-    #nbVoisin : int, point : Point, groupeDePointss : groupeDePoints 
-    def kNN(self, nbVoisin, point, groupeDePoints):
-        
+    #nbVoisin : int, point : Point, grp : groupeDePoints 
+    def kNN(self, nbVoisin, point, grp):
         pointCoordonnees = [[point.getX(), point.getY()]] #Prend les coordonnees du point qu'on cherche
-        groupeDePoints = groupeDePoints.getPoints()  #Prend tous les points contenus dans le groupe de points
-        groupeDePointsCoordonnees=self.convertirPointsEnListe(groupeDePoints) #Prend les coordonnees de tous ces points
-        
-        nbrs = NearestNeighbors(nbVoisin, metric='minkowski',algorithm='ball_tree').fit(groupeDePointsCoordonnees) #Algo KNN
+        grpDePoints = grp.getPoints()  #Prend tous les points contenus dans le groupe de points
+        grpCoordonnees=self.convertirPointsEnListe(grpDePoints) #Prend les coordonnees de tous ces points
+        nbrs = NearestNeighbors(nbVoisin, metric='minkowski',algorithm='ball_tree').fit(grpCoordonnees) #Algo KNN
         indices = nbrs.kneighbors(pointCoordonnees)[1][0] #On prend l'index auxquels sont stockes les plus proches voisins de pointCoordonees dans la variable groupeDePoints
-          
         resultat = []
         for i in indices:
-            resultat.append(groupeDePoints[i]) #On prend les points qui sont les plus proches voisins dans groupeDePoint grace aux index obtenus plus tot
-            
+            resultat.append(grpDePoints[i]) #On prend les points qui sont les plus proches voisins dans groupeDePoint grace aux index obtenus plus tot
         return resultat #On retourne une liste de points
         
     def NP():
