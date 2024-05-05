@@ -1,18 +1,41 @@
 import numpy as np
 import pandas as pd
-import sklearn as sk
+from sklearn.neighbors import NearestNeighbors
+from Point import Point
+from GroupeDePoints import GroupeDePoints
 
 class OutilsAnalyse:
     
     def __init__(self):
         print("")
         
+    def convertirPointsEnListe(self,grp): #Fonction qui convertit un groupeDePoints en Liste pour l'utiliser dans d'autres fonctions
+        grpDePoints=[]
+        for point in grp:
+            grpDePoints.append([point.getX(),point.getY()])
+        return grpDePoints
+    
         
     def coefCorrel(self, grp1, grp2):
+        #A modifier car doit prendre en compte les parametres d'un groupe de points
         return np.corrcoef(grp1, grp2)[0, 1]
     
-    def kNN():
-        return
+    
+    #nbVoisin : int, point : Point, groupeDePointss : groupeDePoints 
+    def kNN(self, nbVoisin, point, groupeDePoints):
+        
+        pointCoordonnees = [[point.getX(), point.getY()]] #Prend les coordonnees du point qu'on cherche
+        groupeDePoints = groupeDePoints.getPoints()  #Prend tous les points contenus dans le groupe de points
+        groupeDePointsCoordonnees=self.convertirPointsEnListe(groupeDePoints) #Prend les coordonnees de tous ces points
+        
+        nbrs = NearestNeighbors(nbVoisin, metric='minkowski',algorithm='ball_tree').fit(groupeDePointsCoordonnees) #Algo KNN
+        indices = nbrs.kneighbors(pointCoordonnees)[1][0] #On prend l'index auxquels sont stockes les plus proches voisins de pointCoordonees dans la variable groupeDePoints
+          
+        resultat = []
+        for i in indices:
+            resultat.append(groupeDePoints[i]) #On prend les points qui sont les plus proches voisins dans groupeDePoint grace aux index obtenus plus tot
+            
+        return resultat #On retourne une liste de points
         
     def NP():
         return
@@ -29,7 +52,3 @@ class OutilsAnalyse:
     
     
     
-x = np.array([1, 2, 3, 4, 5])
-y = np.array([5, 1, 6, 4, 5])
-o = OutilsAnalyse()
-print(o.coefCorrel(x, y))
