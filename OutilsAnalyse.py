@@ -7,8 +7,18 @@ from sklearn.cluster import KMeans
 
 class OutilsAnalyse:
     
+    _instance = None  #Instance unique du singleton
+    
     def __init__(self):
-        print("")
+        if OutilsAnalyse._instance is not None:
+            raise Exception("Cette classe est un singleton, utilisez la méthode getInstance() pour obtenir l'instance.")
+    
+    @staticmethod
+    def getInstance(): #Methode d'appel et de création d'OutilsAnalyse
+        if OutilsAnalyse._instance is None:
+            OutilsAnalyse._instance = OutilsAnalyse()
+        return OutilsAnalyse._instance
+    
         
     def convertirPointsEnListe(self,grp): #Fonction qui convertit un GroupeDePoints en Liste pour l'utiliser dans d'autres fonctions
         grpDePoints=[]
