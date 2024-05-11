@@ -1,4 +1,4 @@
-name,stellar_magnitude,mass,radius,orbital_radius,orbital_period,eccentricity,planet_type
+nom,brillance,masse,rayon,rayonOrbite,periodeOrbite,excentricite,type
 11 Comae Berenices b,4.72307,6169.2,75503.88,1.29,0.8925394,0.23,Gas Giant
 11 Ursae Minoris b,5.013,4687.32,76202.99,1.53,1.4,0.08,Gas Giant
 14 Andromedae b,5.23133,1526.3999999999999,80397.65,0.83,0.5086927,0.0,Gas Giant

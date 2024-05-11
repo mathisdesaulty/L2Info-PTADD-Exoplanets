@@ -60,6 +60,3 @@ class OutilsAnalyse:
     
     def predirePlanete():
         return
-    
-    
-    
