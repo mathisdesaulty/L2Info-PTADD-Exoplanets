@@ -1,18 +1,16 @@
 class Point: #définition de la classe Point et initialisation de toutes ses variables
     nom=""
-    x=0
-    y=0
+    coord=[]
 
-    def __init__(self,nom,x,y): #définition du constructeur de la classe Point
+    def __init__(self,nom,coordonnees): #définition du constructeur de la classe Point
         self.nom=nom
-        self.x=x
-        self.y=y
+        self.coord=coordonnees
 
     def getNom(self):
         return self.nom
 
-    def getX(self): #retourne la coordonnée X du point
-        return self.x
+    def getCoord(self): #retourne les coordonnées du point
+        return self.coord
     
-    def getY(self): #retourne la coordonnée Y du point
-        return self.y
+    def toString(self):
+        return self.nom+""+str(self.coord)

@@ -11,16 +11,28 @@ class GroupeDePoints: #définition de la classe GroupeDePoints et initialisation
     def getNom(self):
         return self.nom
     
+    def getPoint(self,nb):
+        return self.points[nb]
+    
     def getPoints(self):
         return self.points
     
     def getCentre(self): #retourne le centre de tous les points contenus dans le groupe de points
-        totalX=0
-        totalY=0
+        total=[0 for i in range(len(self.points[0].getCoord()))]
         for point in self.points: #parcours tous les points contenus dans la variable de classe "points"
-            totalX+=point.getX() #les points sont ajoutés dans les variables de total respectives
-            totalY+=point.getY()
-        return [totalX/len(self.points),totalY/len(self.points)] #renvoie la moyenne des X et des Y du groupe de points
+            for i in range(len(point.getCoord())):
+                total[i]=total[i]+point.getCoord()[i] #ajoute chaque coordonnées de chaque point à leur total respectif
+        for i in range(len(total)): #parcours le total
+            total[i]=total[i]/len(self.points) #divise chaque nombre total par le nombre de points
+        return total
             
     def getNbPoints(self): #retourne le nombre de points contenus dans le groupe de points
         return len(self.points)
+    
+    def ajoutePoint(self,point):
+        self.points.append(point)
+    
+    def afficher(self):
+        print(self.nom+":")
+        for point in self.points:
+            print(point.toString())

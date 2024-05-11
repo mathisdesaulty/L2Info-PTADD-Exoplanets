@@ -13,15 +13,28 @@ print(o.coefCorrel(x, y))
 
 
 #Test OutilsAnalyse.kNN
-point1 = Point("test1", 2, 0)
-point2 = Point("test1", 1, 2)
-point3 = Point("test1", 2, 2)
-point4 = Point("test1", 1, -1)
-point5 = Point("test1", 4, -2)
-point6 = Point("test1", -1, 2)
+point1 = Point("pt1", [2, 0])
+point2 = Point("pt2", [1, 2])
+point3 = Point("pt3", [2, 2])
+point4 = Point("pt4", [1, -1])
+point5 = Point("pt5", [4, -2])
+point6 = Point("pt6", [-1, 2])
 
-grp1 = GroupeDePoints("grp1", [point1, point2,point3, point4, point5, point6])
-point = Point("test1", 2, 1)
-
+grp1 = GroupeDePoints("grp1", [point1, point2, point3, point4, point5, point6])
+point = Point("test1", [2, 1])
 
 print(o.kNN(4, point, grp1))
+
+pt1 = Point("pt1", [2, 0, 0])
+pt2 = Point("pt2", [10, 10, 5])
+pt3 = Point("pt3", [2, 2, 1])
+pt4 = Point("pt4", [14, 8, 4])
+pt5 = Point("pt5", [1, 2, 2])
+pt6 = Point("pt6", [12, 7, 9])
+
+grp2 = GroupeDePoints("grp2", [pt1, pt2, pt3, pt4, pt5, pt6])
+
+"""kmeans=o.kMeans(2,grp2)
+for groupe in kmeans:
+    groupe.afficher()
+"""
