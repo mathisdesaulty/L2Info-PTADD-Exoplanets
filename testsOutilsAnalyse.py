@@ -20,10 +20,17 @@ point4 = Point("pt4", [1, -1],"terrestre")
 point5 = Point("pt5", [4, -2],"terrestre")
 point6 = Point("pt6", [-1, 2],"terrestre")
 
+point11 = Point("pt11", [1, 0])
+point22 = Point("pt22", [1, 1])
+point33 = Point("pt33", [-3, -3])
+
+
 grp1 = GroupeDePoints("grp1", [point1, point2, point3, point4, point5, point6])
+grp2 = GroupeDePoints("grp1", [point11, point22, point33])
 point = Point("test1", [2, 1])
 
 print(o.kNN(2, point, grp1))
+o.predictionKNN(2,grp1,grp2).afficher()
 
 
 
@@ -35,6 +42,10 @@ pt5 = Point("pt5", [1, 2, 2])
 pt6 = Point("pt6", [12, 7, 9])
 
 grp2 = GroupeDePoints("grp2", [pt1, pt2, pt3, pt4, pt5, pt6])
+
+
+
+
 
 """kmeans=o.kMeans(2,grp2)
 for groupe in kmeans:

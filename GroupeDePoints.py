@@ -4,7 +4,7 @@ class GroupeDePoints: #définition de la classe GroupeDePoints et initialisation
     nom=""
     points=[]
 
-    def __init__(self,nom,points): #définition du constructeur de la classe GroupeDePoints
+    def __init__(self,nom,points=[]): #définition du constructeur de la classe GroupeDePoints
         self.nom=nom
         self.points=points
 

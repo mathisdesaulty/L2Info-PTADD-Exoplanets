@@ -17,5 +17,11 @@ class Point: #définition de la classe Point et initialisation de toutes ses var
     def getTypePlanete(self):
         return self.typePlanete
     
+    def setTypePlanete(self, typePlanete):
+        self.typePlanete = typePlanete
+    
+    def copiePoint(self):
+        return Point(self.nom, self.coord, self.typePlanete)
+    
     def toString(self):
-        return self.nom+""+str(self.coord)
+        return f"Nom: {self.nom}, Type de planète: {self.typePlanete}, Coordonnées: {self.coord}"

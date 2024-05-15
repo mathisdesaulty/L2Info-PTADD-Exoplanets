@@ -63,6 +63,18 @@ class OutilsAnalyse:
                     resultat[j].ajoutePoint(grp.getPoint(i))
         return resultat
     
+    #nbVoisin : int, grpApprentissage : groupeDePoints, grpPrediction : groupeDePoints
+    def predictionKNN(self, nbVoisin, grpApprentissage, grpPrediction):
+        resultat = GroupeDePoints("Groupe de point prediction Knn",) #Créer un groupe de point vide
+        for i in range(0, grpPrediction.getNbPoints()): #Parcours la lsite des points qu'on veut prédire
+            copieDuPoint = grpPrediction.getPoints()[i].copiePoint() #Copie ces points pour ne pas écraser ceux fournies si jamais on veut les traiter
+            copieDuPoint.setTypePlanete(self.kNN(nbVoisin,copieDuPoint, grpApprentissage)) #Modification du typePlanete de la copie grace à la méthode kNN
+            resultat.ajoutePoint(copieDuPoint)
+        return resultat #Le résultat est un groupe de point, ce sont les mêmes points que ceux fournies dans grpPrediction excepté leur typePlanete
+        
+        
+        
+    
     def prediction():
         return
     
