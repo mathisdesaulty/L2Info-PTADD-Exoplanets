@@ -1,6 +1,9 @@
 import numpy as np
 import pandas as pd
-from sklearn.neighbors import NearestNeighbors
+
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.preprocessing import LabelEncoder
+
 from Point import Point
 from GroupeDePoints import GroupeDePoints
 from sklearn.cluster import KMeans
@@ -40,13 +43,13 @@ class OutilsAnalyse:
     #nbVoisin : int, point : Point, grp : groupeDePoints 
     def kNN(self, nbVoisin, point, grp):
         grpDePoints=self.convertirPointsEnListe(grp) #Prend tous les points contenus dans le groupe de points
+        typeDePoints=self.convertirPointsEnTypePlanete(grp)#Prend le typePlanete de tous les points contenus dans le groupe de points
+        LabelEncoder().fit_transform(typeDePoints)#Encode les typePlanete pour qu'ils soient utilisables par kNN
         pointCoordonnees = [point.getCoord()] #Prend les coordonnees du point qu'on cherche
-        nbrs = NearestNeighbors(n_neighbors=nbVoisin, metric='minkowski',algorithm='ball_tree').fit(grpDePoints) #Algo KNN
-        indices = nbrs.kneighbors(pointCoordonnees)[1][0] #On prend l'index auxquels sont stockes les plus proches voisins de pointCoordonees dans la variable groupeDePoints
-        resultat = []
-        for i in indices:
-            resultat.append(grpDePoints[i]) #On prend les points qui sont les plus proches voisins dans groupeDePoint grace aux index obtenus plus tot
-        return resultat #On retourne une liste de points
+        knn = KNeighborsClassifier(n_neighbors=nbVoisin, metric='minkowski',algorithm='ball_tree') #Création de l'algo kNN avec paramètres
+        knn.fit(grpDePoints, typeDePoints) #Entraineement de l'algo Knn sur les coordonnées d'un groupe de point et leur typePlanete
+        return knn.predict(pointCoordonnees) #Prediction du point recherché avec le groupe de point entrainé, retourne un String etant le typePlanete prédit
+        
     
     def kMeans(self,nbCluster,grp): #Algorithme des KMeans qui prend un nombre de cluster et un groupe de points en paramètre et qui renvoie plusieurs groupes de points (clusters)
         grpDePoints=self.convertirPointsEnListe(grp)

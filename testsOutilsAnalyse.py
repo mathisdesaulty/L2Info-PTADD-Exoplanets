@@ -23,8 +23,8 @@ point6 = Point("pt6", [-1, 2],"terrestre")
 grp1 = GroupeDePoints("grp1", [point1, point2, point3, point4, point5, point6])
 point = Point("test1", [2, 1])
 
-print(o.kNN(4, point, grp1))
-print(o.convertirPointsEnTypePlanete(grp1))
+print(o.kNN(2, point, grp1))
+
 
 
 pt1 = Point("pt1", [2, 0, 0])
