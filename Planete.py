@@ -47,24 +47,18 @@ class Planete: #définition de la classe Planete et initialisation de toutes ses
         print("Excentricité :",self.excentricite)
 
 class PlanetePredite(Planete): #définition de la classe PlanetePredite qui hérite de la classe Planete
-    type=""
+    typePlanete=""
 
     def __init__(self,nom,brillance,masse,rayon,rayonOrbite,periodeOrbite,excentricite,typePlanete): #définition du constructeur de la classe PlanetePredite qui appelle le constructeur de la classe Planete
         super().__init__(nom,brillance,masse,rayon,rayonOrbite,periodeOrbite,excentricite)
         self.typePlanete=typePlanete
 
     def getType(self): #renvoie le type de la planète prédite
-        return self.type
+        return self.typePlanete
     
-    def setType(self,type): #modifie le type de la planète prédite
-        self.type=type
+    def setType(self,typePlanete): #modifie le type de la planète prédite
+        self.typePlanete=typePlanete
     
     def afficher(self):
-        print("Nom :",self.nom)
-        print("Brillance :",self.brillance)
-        print("Masse :",self.masse)
-        print("Rayon :",self.rayon)
-        print("Rayon d'orbite :",self.rayonOrbite)
-        print("Période d'orbite :",self.periodeOrbite)
-        print("Excentricité :",self.excentricite)
-        print("Type de planète :",self.type)
+        super().afficher()
+        print("Type de planète :",self.typePlanete)
