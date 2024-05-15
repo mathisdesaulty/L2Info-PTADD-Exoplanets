@@ -26,6 +26,11 @@ class OutilsAnalyse:
             grpDePoints.append(point.getCoord())
         return grpDePoints
     
+    def convertirPointsEnTypePlanete(self, grp): #Fonction qui convertit un GroupeDePoints en Liste de typePlanete
+        grpDePoints=[]
+        for point in grp.getPoints():
+            grpDePoints.append(point.getTypePlanete())
+        return grpDePoints
         
     def coefCorrel(self, grp1, grp2):
         #A modifier car doit prendre en compte les parametres d'un groupe de points

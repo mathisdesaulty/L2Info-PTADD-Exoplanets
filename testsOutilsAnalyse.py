@@ -13,17 +13,19 @@ print(o.coefCorrel(x, y))
 
 
 #Test OutilsAnalyse.kNN
-point1 = Point("pt1", [2, 0])
-point2 = Point("pt2", [1, 2])
-point3 = Point("pt3", [2, 2])
-point4 = Point("pt4", [1, -1])
-point5 = Point("pt5", [4, -2])
-point6 = Point("pt6", [-1, 2])
+point1 = Point("pt1", [2, 0], "gazeuse")
+point2 = Point("pt2", [1, 2], "gazeuse")
+point3 = Point("pt3", [2, 2],"gazeuse")
+point4 = Point("pt4", [1, -1],"terrestre")
+point5 = Point("pt5", [4, -2],"terrestre")
+point6 = Point("pt6", [-1, 2],"terrestre")
 
 grp1 = GroupeDePoints("grp1", [point1, point2, point3, point4, point5, point6])
 point = Point("test1", [2, 1])
 
 print(o.kNN(4, point, grp1))
+print(o.convertirPointsEnTypePlanete(grp1))
+
 
 pt1 = Point("pt1", [2, 0, 0])
 pt2 = Point("pt2", [10, 10, 5])
