@@ -13,8 +13,15 @@ with open('DatasetModif.csv',newline='') as f:
     for ligne in lire:
         tableau.append(ligne)
     
+tableauModif=[]
 for liste in tableau:
-    planete=Planete(liste[0],liste[1],liste[2],liste[3],liste[4],liste[5],liste[6])
-    grpPlanetes.append(planete)
-
-planete.afficher()
+    if liste[0]=="" or liste[1]=="" or liste[2]=="" or liste[3]=="" or liste[4]=="":
+        print(liste)
+    else:
+        tableauModif.append(liste)
+"""
+with open("DatasetModif.csv",'w',newline="") as f:
+    ecrire=csv.writer(f)
+    for i in tableauModif:
+        ecrire.writerow(i)
+"""

@@ -1,26 +1,21 @@
+from Point import Point
+
 class Planete: #définition de la classe Planete et initialisation de toutes ses variables
     nom=""
-    brillance=0
     masse=0
     rayon=0
     rayonOrbite=0
     periodeOrbite=0
-    excentricite=0
 
-    def __init__(self,nom,brillance,masse,rayon,rayonOrbite,periodeOrbite,excentricite): #définition du constructeur de la classe Planete
+    def __init__(self,nom,masse,rayon,rayonOrbite,periodeOrbite): #définition du constructeur de la classe Planete
         self.nom=nom
-        self.brillance=brillance
         self.masse=masse
         self.rayon=rayon
         self.rayonOrbite=rayonOrbite
         self.periodeOrbite=periodeOrbite
-        self.excentricite=excentricite
     
     def getNom(self): #fonctions qui renvoient les valeurs contenues dans les variables respectives
         return self.nom
-    
-    def getBrillance(self):
-        return self.brillance
     
     def getMasse(self):
         return self.masse
@@ -34,23 +29,21 @@ class Planete: #définition de la classe Planete et initialisation de toutes ses
     def getPeriodeOrbite(self):
         return self.periodeOrbite
     
-    def getExcentricite(self):
-        return self.excentricite
+    def convertirPlaneteEnPoint(self):
+        return Point(self.nom,[self.masse,self.rayon,self.rayonOrbite,self.periodeOrbite])
 
     def afficher(self):
         print("Nom :",self.nom)
-        print("Brillance :",self.brillance)
         print("Masse :",self.masse)
         print("Rayon :",self.rayon)
         print("Rayon d'orbite :",self.rayonOrbite)
         print("Période d'orbite :",self.periodeOrbite)
-        print("Excentricité :",self.excentricite)
 
 class PlanetePredite(Planete): #définition de la classe PlanetePredite qui hérite de la classe Planete
     typePlanete=""
 
-    def __init__(self,nom,brillance,masse,rayon,rayonOrbite,periodeOrbite,excentricite,typePlanete): #définition du constructeur de la classe PlanetePredite qui appelle le constructeur de la classe Planete
-        super().__init__(nom,brillance,masse,rayon,rayonOrbite,periodeOrbite,excentricite)
+    def __init__(self,nom,masse,rayon,rayonOrbite,periodeOrbite,typePlanete): #définition du constructeur de la classe PlanetePredite qui appelle le constructeur de la classe Planete
+        super().__init__(nom,masse,rayon,rayonOrbite,periodeOrbite)
         self.typePlanete=typePlanete
 
     def getType(self): #renvoie le type de la planète prédite
@@ -58,6 +51,9 @@ class PlanetePredite(Planete): #définition de la classe PlanetePredite qui hér
     
     def setType(self,typePlanete): #modifie le type de la planète prédite
         self.typePlanete=typePlanete
+
+    def convertirPlaneteEnPoint(self):
+        return Point(self.nom,[self.masse,self.rayon,self.rayonOrbite,self.periodeOrbite],self.typePlanete)
     
     def afficher(self):
         super().afficher()
