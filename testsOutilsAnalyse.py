@@ -32,9 +32,10 @@ grp1 = GroupeDePoints("grp1", [point1, point2, point3, point4, point5, point6])
 grp2 = GroupeDePoints("grp1", [point11, point22, point33])
 point = Point("test1", [2, 1])
 
-print(o.kNN(2, point, grp1))
-#o.predictionKNN(2,grp1,grp2).afficher()
 
+donneesEntrainee = o.entrainerKNN(2,grp1)
+o.predictionGroupeDePoints(grp2,donneesEntrainee).afficher()
+o.predictionPointSeul(point1,donneesEntrainee).afficher()
 
 
 pt1 = Point("pt1", [2, 0, 0])
@@ -46,35 +47,39 @@ pt6 = Point("pt6", [12, 7, 9])
 
 grp2 = GroupeDePoints("grp2", [pt1, pt2, pt3, pt4, pt5, pt6])
 
+
+
+
+
 """kmeans=o.kMeans(2,grp2)
 for groupe in kmeans:
     groupe.afficher()
 """
 
-grpPlanetes=[]
+#grpPlanetes=[]
 
-with open('DatasetModif.csv',newline='') as f:
-    tableau=[]
-    lire=csv.reader(f)
-    for ligne in lire:
-        tableau.append(ligne)
+#with open('DatasetModif.csv',newline='') as f:
+#    tableau=[]
+#    lire=csv.reader(f)
+#    for ligne in lire:
+#        tableau.append(ligne)
 
-ptPlanete1=Point("Point 1",[float(tableau[5][1]),float(tableau[5][2]),float(tableau[5][3]),float(tableau[5][4])])
-ptPlanete2=Point("Point 2",[float(tableau[25][1]),float(tableau[25][2]),float(tableau[25][3]),float(tableau[25][4])])
-grpDePlanetes=GroupeDePoints("Groupe de points",[ptPlanete1,ptPlanete2])
+#ptPlanete1=Point("Point 1",[float(tableau[5][1]),float(tableau[5][2]),float(tableau[5][3]),float(tableau[5][4])])
+#ptPlanete2=Point("Point 2",[float(tableau[25][1]),float(tableau[25][2]),float(tableau[25][3]),float(tableau[25][4])])
+#grpDePlanetes=GroupeDePoints("Groupe de points",[ptPlanete1,ptPlanete2])
     
-del tableau[0]
+#del tableau[0]
 
-for ligne in tableau:
-    planete=Planete(ligne[0],float(ligne[1]),float(ligne[2]),float(ligne[3]),ligne[4])
-    grpPlanetes.append(planete)
+#for ligne in tableau:
+#    planete=Planete(ligne[0],float(ligne[1]),float(ligne[2]),float(ligne[3]),ligne[4])
+#    grpPlanetes.append(planete)
 
-grpDePoints=GroupeDePoints("Groupe de planètes")
+#grpDePoints=GroupeDePoints("Groupe de planètes")
 
-for planete in grpPlanetes:
-    grpDePoints.ajoutePoint(planete.convertirPlaneteEnPoint())
+#for planete in grpPlanetes:
+#    grpDePoints.ajoutePoint(planete.convertirPlaneteEnPoint())
+#
+#print(grpDePoints.getNbPoints())
+#grpDePlanetes.afficher()
 
-print(grpDePoints.getNbPoints())
-grpDePlanetes.afficher()
-
-o.predictionKNN(2,grpDePoints,grpDePlanetes).afficher()
+#o.predictionKNN(2,grpDePoints,grpDePlanetes).afficher()

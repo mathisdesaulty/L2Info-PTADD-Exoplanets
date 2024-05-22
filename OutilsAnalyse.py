@@ -39,18 +39,6 @@ class OutilsAnalyse:
         #A modifier car doit prendre en compte les parametres d'un groupe de points
         return np.corrcoef(grp1, grp2)[0, 1]
     
-    
-    #nbVoisin : int, point : Point, grp : groupeDePoints 
-    def kNN(self, nbVoisin, point, grp):
-        grpDePoints=self.convertirPointsEnListe(grp) #Prend tous les points contenus dans le groupe de points
-        typeDePoints=self.convertirPointsEnTypePlanete(grp)#Prend le typePlanete de tous les points contenus dans le groupe de points
-        LabelEncoder().fit_transform(typeDePoints)#Encode les typePlanete pour qu'ils soient utilisables par kNN
-        pointCoordonnees = [point.getCoord()] #Prend les coordonnees du point qu'on cherche
-        knn = KNeighborsClassifier(n_neighbors=nbVoisin, metric='minkowski',algorithm='ball_tree') #Création de l'algo kNN avec paramètres
-        knn.fit(grpDePoints, typeDePoints) #Entraineement de l'algo Knn sur les coordonnées d'un groupe de point et leur typePlanete
-        return knn.predict(pointCoordonnees) #Prediction du point recherché avec le groupe de point entrainé, retourne un String etant le typePlanete prédit
-        
-    
     def kMeans(self,nbCluster,grp): #Algorithme des KMeans qui prend un nombre de cluster et un groupe de points en paramètre et qui renvoie plusieurs groupes de points (clusters)
         grpDePoints=self.convertirPointsEnListe(grp)
         kmeans=KMeans(n_clusters=nbCluster,random_state=0,n_init="auto").fit(grpDePoints).labels_ #effectue l'algorithme des KMeans
@@ -72,11 +60,34 @@ class OutilsAnalyse:
             resultat.ajoutePoint(copieDuPoint)
         return resultat #Le résultat est un groupe de point, ce sont les mêmes points que ceux fournies dans grpPrediction excepté leur typePlanete
         
+    #Entraine un algo kNN avec un groupe
+    #nbVoisin : int, grpApprentissage : groupeDePoints,
+    def entrainerKNN(self, nbVoisin, grp):
+        grpDePoints=self.convertirPointsEnListe(grp) #Prend tous les points contenus dans le groupe de points
+        typeDePoints=self.convertirPointsEnTypePlanete(grp)#Prend le typePlanete de tous les points contenus dans le groupe de points
+        LabelEncoder().fit_transform(typeDePoints)#Encode les typePlanete pour qu'ils soient utilisables par kNN
+        knn = KNeighborsClassifier(n_neighbors=nbVoisin, metric='minkowski',algorithm='ball_tree')
+        return knn.fit(grpDePoints, typeDePoints) #Retourne une fonction entrainée sur les données passé dans la variable grp
         
-        
+    #Predit les points individuelements
+    #point : Point, knn : grpEntrainee obtenu avec entrainerKNN
+    def predictionPoint(self, point, knn):
+        pointCoordonnees = [point.getCoord()] #Prend les coordonnees du point qu'on cherche
+        return knn.predict(pointCoordonnees) #Prediction du point recherché avec le groupe de point entrainé, retourne un String etant le typePlanete prédit
     
-    def prediction():
-        return
+    #Predit un groupe de point
+    #groupeDePoint : GroupeDePoint, knn : grpEntrainee obtenu avec entrainerKNN
+    def predictionGroupeDePoints(self, groupeDePoint, knn):
+        resultat = GroupeDePoints("Groupe de point prediction Knn",) #Créer un groupe de point vide
+        for i in range(0, groupeDePoint.getNbPoints()): #Parcours la liste des points qu'on veut prédire
+            copieDuPoint = groupeDePoint.getPoints()[i].copiePoint() #Copie ces points pour ne pas écraser ceux fournies si jamais on veut les traiter
+            copieDuPoint.setTypePlanete(self.predictionPoint(copieDuPoint, knn)) #Modification du typePlanete de la copie grace à la méthode kNN
+            resultat.ajoutePoint(copieDuPoint)
+        return resultat #Le résultat est un groupe de point, ce sont les mêmes points que ceux fournies dans grpPrediction excepté leur typePlanete
+
+    #Predit un point 
+    #point : Point, knn : grpEntrainee obtenu avec entrainerKNN
+    def predictionPointSeul(self, point, knn):
+        grp = GroupeDePoints("",[point])
+        return self.predictionGroupeDePoints(grp, knn) #Retourne un groupe de point constitué d'un seul point prédit
     
-    def predirePlanete():
-        return
