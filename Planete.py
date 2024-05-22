@@ -52,7 +52,7 @@ class PlanetePredite(Planete): #définition de la classe PlanetePredite qui hér
     def setType(self,typePlanete): #modifie le type de la planète prédite
         self.typePlanete=typePlanete
 
-    def convertirPlaneteEnPoint(self):
+    def convertirPlanetePrediteEnPoint(self):
         return Point(self.nom,[self.masse,self.rayon,self.rayonOrbite,self.periodeOrbite],self.typePlanete)
     
     def afficher(self):
