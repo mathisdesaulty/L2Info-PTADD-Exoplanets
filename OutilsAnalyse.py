@@ -73,21 +73,9 @@ class OutilsAnalyse:
     #point : Point, knn : grpEntrainee obtenu avec entrainerKNN
     def predictionPoint(self, point, knn):
         pointCoordonnees = [point.getCoord()] #Prend les coordonnees du point qu'on cherche
-        return knn.predict(pointCoordonnees) #Prediction du point recherché avec le groupe de point entrainé, retourne un String etant le typePlanete prédit
+        return knn.predict(pointCoordonnees)[0] #Prediction du point recherché avec le groupe de point entrainé, retourne un String etant le typePlanete prédit
     
-    #Predit un groupe de point
-    #groupeDePoint : GroupeDePoint, knn : grpEntrainee obtenu avec entrainerKNN
-    def predictionGroupeDePoints(self, groupeDePoint, knn):
-        resultat = GroupeDePoints("Groupe de point prediction Knn",) #Créer un groupe de point vide
-        for i in range(0, groupeDePoint.getNbPoints()): #Parcours la liste des points qu'on veut prédire
-            copieDuPoint = groupeDePoint.getPoints()[i].copiePoint() #Copie ces points pour ne pas écraser ceux fournies si jamais on veut les traiter
-            copieDuPoint.setTypePlanete(self.predictionPoint(copieDuPoint, knn)) #Modification du typePlanete de la copie grace à la méthode kNN
-            resultat.ajoutePoint(copieDuPoint)
-        return resultat #Le résultat est un groupe de point, ce sont les mêmes points que ceux fournies dans grpPrediction excepté leur typePlanete
-
     #Predit un point 
     #point : Point, knn : grpEntrainee obtenu avec entrainerKNN
     def predictionPointSeul(self, point, knn):
-        grp = GroupeDePoints("",[point])
-        return self.predictionGroupeDePoints(grp, knn) #Retourne un groupe de point constitué d'un seul point prédit
-    
+        return Point(point.getNom(),point.getCoord(),self.predictionPoint(point, knn)) #Retourne un groupe de point constitué d'un seul point prédit
