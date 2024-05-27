@@ -124,7 +124,8 @@ h3{
 }
 
 .infos{
-    justify-content: start;
+    justify-content: space-around; /* Pour que l'espace soit égal autour des éléments */
+    flex-wrap: wrap; /*Pour que les éléments passent à la ligne si nécessaire*/
 }
 
 .info{
