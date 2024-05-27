@@ -68,13 +68,21 @@ class OutilsAnalyse:
         knn = KNeighborsClassifier(n_neighbors=nbVoisin, metric='minkowski',algorithm='ball_tree')
         return knn.fit(grpDePoints, typeDePoints) #Retourne une fonction entrainée sur les données passé dans la variable grp
         
-    #Predit les points individuelements
-    #point : Point, knn : grpEntrainee obtenu avec entrainerKNN
-    def predictionPoint(self, point, knn):
+    #Predit les points individuellement
+    #point : Point, knn : grpEntraine obtenu avec entrainerKNN
+    def predictionType(self, point, knn):
         pointCoordonnees = [point.getCoord()] #Prend les coordonnees du point qu'on cherche
         return knn.predict(pointCoordonnees)[0] #Prediction du point recherché avec le groupe de point entrainé, retourne un String etant le typePlanete prédit
     
-    #Predit un point 
+    #Predit un point
     #point : Point, knn : grpEntrainee obtenu avec entrainerKNN
-    def predictionPointSeul(self, point, knn):
-        return Point(point.getNom(),point.getCoord(),self.predictionPoint(point, knn)) #Retourne un groupe de point constitué d'un seul point prédit
+    def predictionPoint(self, point, knn):
+        point.setTypePlanete(self.predictionType(point, knn))
+        return point #Retourne le point prédit
+    
+    #Predit un groupe de points 
+    #point : Point, knn : grpEntraine obtenu avec entrainerKNN
+    def predictionGroupe(self, grp, knn):
+        for point in grp.getPoints():
+            self.predictionPoint(point,knn)
+        return grp #Retourne le groupe de point prédit
