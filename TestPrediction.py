@@ -3,6 +3,7 @@ from Point import Point
 from GroupeDePoints import GroupeDePoints
 import csv
 
+
 o = OutilsAnalyse.getInstance()
 
 with open('DatasetModif.csv',newline='') as f:
