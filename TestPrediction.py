@@ -5,7 +5,6 @@ from GroupeDePoints import GroupeDePoints
 import csv
 
 o = OutilsAnalyse.getInstance()
-o.kMeans
 
 with open('DatasetModif.csv',newline='') as f:
     tableau=[]

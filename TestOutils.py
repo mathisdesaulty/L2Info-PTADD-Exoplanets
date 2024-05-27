@@ -25,6 +25,3 @@ y = np.array([5, 1, 6, 4, 5])
 o = OutilsAnalyse()
 print(o.coefCorrel(x, y))
 
-kmeans=o.kMeans(2,grp)
-for grp in kmeans:
-    grp.afficher()
