@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/reset.css">
+        <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="../css/responsive.css">
+        <title>Exoplanètes</title>
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Exoplanètes</h1>
+                <nav class="menu">
+                    <ul>
+                        <li><a href="../html/predictions.html">Prédiction</a></li>
+                        <li><a class="point_actif" href="../html/Statistics.html">Statistiques</a></li>
+                        <li><a href="../php/index.php">Données</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <div>
+                <section class="infos">
+                    <article class="info">
+                        <h2>Masse en fonction du type</h2>
+                        <img src="../images/Boxplot_masse_type.png" alt="boxplot masse type">
+                        <p>Analyse des masses des planètes (Unité : masse terrestre) en fonction de leur type</p>
+                    </article>
+
+                    <article class="info">
+                        <h2>Rayon en fonction du type</h2>
+                        <img src="../images/Boxplot_rayon_type.png" alt="boxplot rayon type">
+                        <p>Analyse des rayons des planètes (Unité : kilomètre) en fonction de leur type</p>
+                    </article>
+                </section>
+
+                <section class="infoSolo">
+                    <article class="info">
+                        <h2>periodeOrbite en fonction du type</h2>
+                        <img src="../images/Boxplot_periodeOrbite_type.png" alt="boxplot periodeOrbite type">
+                        <p>Analyse des périodes d’orbite des planètes (Unité : année) en fonction de leur type</p>
+                    </article>
+                </section>
+
+            </div>
+
+            <h3>Suppression de certaines variables:</h3>
+            
+            <div>
+                <section class="infos">
+                    <article class="info">
+                        <h2 class="NonUtil">Distances des planètes à la Terre (Unité : année lumière) en fonction de leur type</h2>
+                        <img src="../images/Boxplot_dist_terre_type.png" alt="boxplot distance des planétes à la terre en fonction de leur type">
+                        <p>Les différences entre les moyennes étant faibles et les écarts-types étant élevés, la variable est donc beaucoup moins explicative pour la prédiction du type, elle a été supprimée.</p>
+                    </article>
+
+                    <article class="info">
+                        <h2 class="NonUtil">Brillances des planètes en fonction de leur type</h2>
+                        <img src="../images/Boxplot_Brill_type.png" alt="boxplot Brillance en fonction du type">
+                        <p>Les différences entre les moyennes étant faibles (entre les types Terrestrial, Super Earth et Neptune-like) et les écarts-types étant élevés, la variable est donc beaucoup moins explicative pour la prédiction du type, elle a été supprimée.</p>
+                    </article>
+                </section>
+                
+                <section class="infos">
+                    <article class="info">
+                        <h2 class="NonUtil">Années de découverte en fonction de leur type</h2>
+                        <img src="../images/Boxplot_Donnees_type.png" alt="boxplot années de découvertes en fonction du type">
+                        <p>Les différences entre les moyennes étant faibles (entre les types Terrestrial, Super Earth et Neptune-like) et les écarts-types étant élevés, la variable est donc beaucoup moins explicative pour la prédiction du type, elle a été supprimée.</p>
+                    </article>
+
+                    <article class="info">
+                        <h2 class="NonUtil">Excentricité en fonction de leur type</h2>
+                        <img src="../images/Boxplot_Exentricite_type.png" alt="boxplot excentricité en fonction du type">
+                        <p>Les médianes de Terrestrial, Super Earth et Neptune-like sont à 0, du fait que beaucoup de planètes possèdent une excentricité de 0, la variable est donc beaucoup moins explicative pour la prédiction du type, elle a été supprimée.</p>
+                    </article>
+                </section>
+
+                <section class="infoSolo">
+                    <article class="info">
+                        <h2 class="NonUtil">Coefficient de corrélation entre période d’orbite et rayon d’orbite.</h2>
+                        <img src="../images/Corr_PerOrb_RayOrb.png" alt="corrélation periode orbite et rayon orbite" width="600" height="100">
+                        <p>La corrélation étant très élevée, il vaut mieux supprimer une des deux variables (ici on a décidé de supprimer rayon d’orbite) pour alléger les données et limiter la pollution</p>
+                    </article>
+                </section>
+
+            </div>
+
+            <article class="contenu">
+            <h3>Funfacts 1:</h3>
+            <p>La planète COCONUTS-2 b possède un rayon d’orbite autour de son astre de 7506 unités astronomiques (1 unité astronomique = 150 millions km, soit 6255 fois le rayon d’orbite de la Terre), et donc elle effectue un tour de son astre en + 1 million d’années</p>
+            </article>
+
+            <article class="contenu">
+            <h3>Funfacts 2:</h3>
+            <p>La planète HD 100546 b est la planète la plus grande de notre dataset, avec un rayon de 482386 km, soit 6.9 fois plus grande que Jupiter et 75 fois plus grande que la terre.
+                Elle est presque aussi grande que notre soleil qui lui possède un rayon de 696340 km</p>
+            </article>
+
+            <article class="contenu">
+            <h3>Funfacts 3:</h3>
+            <p>La planète K2-52b possède une masse de 45792 masses terrestres !! Elle est 144 fois plus massive que Jupiter</p>
+            </article>
+
+            <article class="contenu">
+            <h3>Funfacts 4:</h3>
+            <p>La planète PSR B1257+12 b possède la plus petite masse de notre dataset elle pèse 1/50 de la masse de la Terre</p>
+            </article>
+
+            <article class="contenu">
+            <h3>Funfacts 5:</h3>
+            <p>La planète Kepler-37 b est la plus petite de notre dataset, elle possède un rayon 3 fois plus petit que la Terre</p>
+            </article>
+
+            <article class="contenu">
+            <h3>Funfacts 6:</h3>
+            <p>La planète K2-137 b possède un rayon d’orbite 300 fois plus petit que la Terre, elle effectue un tour de son astre en 0.00055 année, soit 4 heures et 48 minutes</p>
+            </article>
+
+        </main>
+    </body>
+</html>
