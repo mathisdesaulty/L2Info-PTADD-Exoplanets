@@ -1,5 +1,3 @@
-import numpy as np
-import pandas
 import sklearn
 
 from Point import Point
@@ -20,8 +18,8 @@ print("Nombre de points dans le groupe :",grp.getNbPoints())
 print("Centre :",grp.getCentre())
 print("Type de planete :",p1.getTypePlanete())
 
-x = np.array([1, 2, 3, 4, 5])
-y = np.array([5, 1, 6, 4, 5])
+x = [1, 2, 3, 4, 5]
+y = [5, 1, 6, 4, 5]
 o = OutilsAnalyse()
-print(o.coefCorrel(x, y))
+
 

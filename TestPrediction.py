@@ -1,5 +1,4 @@
 from OutilsAnalyse import OutilsAnalyse
-import numpy as np
 from Point import Point
 from GroupeDePoints import GroupeDePoints
 import csv
@@ -29,3 +28,5 @@ planetesEntrainees=o.entrainerKNN(2,grpDePoints)
 
 print(o.predictionPoint(planete1,planetesEntrainees).getTypePlanete())
 o.predictionGroupe(planetesAPredire,planetesEntrainees).afficher()
+
+

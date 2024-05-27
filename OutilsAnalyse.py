@@ -1,6 +1,3 @@
-import numpy as np
-import pandas as pd
-
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import LabelEncoder
 
