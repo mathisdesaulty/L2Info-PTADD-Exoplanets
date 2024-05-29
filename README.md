@@ -2,7 +2,9 @@
 
 ## Description du Projet
 
-Ce projet vise à créer un site web interactif permettant d'explorer les données sur les exoplanètes fournies par la NASA. Nous utilisons un ensemble de données provenant de Kaggle, qui contient des informations détaillées sur près de 5000 exoplanètes découvertes à ce jour. Notre objectif est de fournir aux utilisateurs une plateforme conviviale pour visualiser, analyser et même prédire le type de planète en fonction des données fournies.
+Ce projet vise à créer un site web interactif permettant d'explorer les données sur les exoplanètes fournies par la NASA. Nous utilisons un ensemble de données provenant de Kaggle, qui contient des informations détaillées sur près de 5000 exoplanètes découvertes à ce jour. Notre objectif est de fournir aux utilisateurs une plateforme conviviale pour visualiser, analyser et même prédire le type de planète en fonction des données fournies. 
+[Dataset]([https://www.kaggle.com/datasets/adityamishraml/nasaexoplanets/discussion])
+
 
 ## Fonctionnalités Principales
 
@@ -30,5 +32,3 @@ Ce projet vise à créer un site web interactif permettant d'explorer les donné
 - Bastien PASCAUD
 - Mateo BOILON
 - Kériann CHAUVIN
-
-https://docs.google.com/document/d/1o4QFbMxnqjSgz3eEPrzQWlNg2zgq5Kg6yGYsEDWj13U/edit
