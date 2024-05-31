@@ -1,0 +1,189 @@
+*, *:before, *:after {
+    box-sizing: border-box; /* Simplifier le modèle de boîte */
+    }
+    img {
+    max-width: 100%;/* Eviter qu'une image dépasse de son conteneur */
+    border-color: #222222;
+        border: 1px solid;
+        }
+html{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(90deg, #5e0266, #0000af);
+    min-height: 100%;
+}
+
+
+main {
+    display: flex; 
+    justify-content: center;
+    align-items: flex-start; 
+    flex-wrap: wrap; 
+}
+
+nav a{
+
+    font-size: 1rem;
+    margin-bottom: 1em;
+    padding: 0.7rem 1rem;
+    background-color: hsl(0, 0%, 100%);
+
+
+    color: #000000;
+    display: block;
+    text-align: center;
+    
+    border-color: #8e1399;
+    border: 1px solid;
+    border-radius: 0.5rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+
+}
+
+a:hover {
+    background-color: rgba(255, 255, 255, 0.60);
+    transition: 1s;
+}
+
+header {
+    width: 100vw; 
+    box-sizing: border-box;
+    padding: 1em;
+}
+        
+.menu {
+    display: flex;
+    justify-content: space-between; /* Espace les éléments du menu de façon égale */
+    align-items: center; /* Centre verticalement les éléments */
+}
+        
+.menu ul {
+    display: flex; /* Affiche les éléments de la liste en ligne */
+    list-style: none; /* Supprime les puces de la liste */
+    padding: 0;
+    margin: 0;
+    width: 100vw; /* S'assure que le header prend toute la largeur de la page */
+
+}
+        
+.menu li {
+    margin-right: 1em; /* Espace entre les éléments du menu */
+    width: 100vw; /* S'assure que le header prend toute la largeur de la page */
+
+}
+
+.point_actif{
+    border-radius: 100px;
+}
+        
+        
+h1 {
+    font-size: 100px;
+    font-family: Helvetica,Arial,sans-serif;
+    font-weight: 100;
+    background-color: #fff3ea;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h1:hover{
+    opacity: 0.8;
+}
+
+.resultat {
+    background-color: #ffffff;
+    display: block;
+    text-align: center;
+    border-color: #222222;
+    border: 1px solid;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    text-decoration: none;
+}
+
+
+h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: Helvetica,Arial,sans-serif;
+    color: #fff3ea;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+h3{
+    color: #fff3ea;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
+.infos{
+    justify-content: space-around; /* Pour que l'espace soit égal autour des éléments */
+    flex-wrap: wrap; /*Pour que les éléments passent à la ligne si nécessaire*/
+}
+
+.info{
+    border-radius: 0.5rem;
+    text-align: center;
+    flex: 0 0 45%; /* Pour que chaque article occupe environ 45% de la largeur du parent */
+    margin: 10px; /* Marge autour de chaque article pour l'espace */
+    padding: 1.5rem 1rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.infoSolo{
+    text-align: center;
+    flex: 0 0 45%; /* Pour que chaque article occupe environ 45% de la largeur du parent */
+    margin: 10px; /* Marge autour de chaque article pour l'espace */
+    padding: 1.5rem 1rem;
+}
+
+.NonUtil{
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: Helvetica,Arial,sans-serif;
+    color: #ff0000;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+
+.contenu{
+    border-radius: 0.5rem;
+    text-align: center;
+    flex: 0 0 45%; /* Pour que chaque article occupe environ 45% de la largeur du parent */
+    margin: 10px; /* Marge autour de chaque article pour l'espace */
+    padding: 1.5rem 1rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    background-color: rgba(255, 255, 255, 0.25);
+
+
+}
+
+form{
+    border-radius: 0.5rem;
+    text-align: center;
+    flex: 0 0 45%; /* Pour que chaque article occupe environ 45% de la largeur du parent */    
+}
+
+.formulaire{
+    margin-bottom: 0px;
+}
+
+p{
+    padding: 1em;
+    margin-bottom: 1em;
+    color:#fff3ea;
+    
+}
+
+footer{
+    padding: 1em;
+    margin-bottom: 1em;
+}
